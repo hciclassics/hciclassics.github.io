@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Javascript for bootstrap -->
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <title>HCI Classics</title>
+
+    <script src="utils.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a href="#" class="navbar-brand">
+              Humberside Classics
+            </a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapser" aria-expanded="false">
+              <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbar-collapser">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  News
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" onclick="loadContent('events')">Upcoming Events</a></li>
+                  <li><a href="#" onclick="loadContent('schedule')">Schedule</a></li>
+                </ul>
+              </li>
+              <li><a href="#" onclick="loadContent('progress')">Progress</a></li>
+              <li><a href="#" onclick="loadContent('resources')">Resources</a></li>
+              <li><a href="#" onclick="loadContent('photos')">Photos</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <!-- Main page content -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- The push is so that on mobile it renders first, but desktop knows to "push" it to the right -->
+        <div class="col-md-3 col-md-push-9">
+          <div class="panel panel-default" id="infoPanel">
+            <div class="panel-heading">
+              Info
+              <!-- Make info panel removable on mobile only -->
+              <button type="button" class="close visible-xs visible-sm" aria-label="Close" onclick="easeOutElement('infoPanel')">
+                <span aria-hidden="true">&times</span>
+              </button>
+            </div>
+            <div class="panel-body" id="infoBar">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9 col-md-pull-3">
+          <div class="panel panel-default" id="contentPanel">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

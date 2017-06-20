@@ -1,0 +1,12 @@
+body {
+
+  padding-top: 75px;
+
+}
+
+.hoverborder:hover {
+
+  border: 1px solid lightblue;
+  cursor: pointer;
+
+}
