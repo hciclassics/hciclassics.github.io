@@ -71,6 +71,7 @@ window.onload = function() {
 
 function setView(name) {
 
+  siteVals.view = name;
   setQuery(siteVals);
   reloadContent();
 
