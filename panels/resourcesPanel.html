@@ -29,9 +29,9 @@ function unencrypt() {
   var attempt = xorString(encryptedString, $("#passwordInput").val());
 
   // SPECIFIC CHECK, MAY NEED TO UPDATE
-  if(attempt.indexOf("s/0Bx") != -1) {
+  if(attempt.indexOf("dITH") != -1) {
 
-    $("#resourcePasswordField").html("<a href='" + attempt + "' target='_blank'><button class='btn btn-primary'>Here you go!</button></a>");
+    $("#resourcePasswordField").html("<a href='https://drive.google.com/drive/folders/" + attempt + "' target='_blank'><button class='btn btn-primary'>Here you go!</button></a>");
 
   } else {
 
