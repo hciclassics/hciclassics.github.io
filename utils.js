@@ -28,13 +28,13 @@ window.onload = function() {
 
     $("#infoBar").html("<marquee>YOU ACTIVATED THE SPECIAL CHEATMODE ... IT DOES NOTHING!</marquee>");
 
-  } else if(siteVals.info != "no") {
+  } else if(siteVals.info == "no") {
 
-    $("#infoBar").load("panels/infoPanel.html" + "?v=" + Math.floor(Math.random()*1000));
+    $("#infoBar").parent().remove();
 
   } else {
 
-    $("#infoBar").parent().remove();
+    $("#infoBar").load("panels/infoPanel.html" + "?v=" + Math.floor(Math.random()*1000));
 
   }
 
