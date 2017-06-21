@@ -5,8 +5,16 @@
 ### Salve!
 
 This GitHub Pages repository is for the HCI Classics club.
-It is updated as new content is added for the students to be aware of.
+It is updated regularly, as it is meant to provide:
 
-[Check it out](https://hciclassics.github.io)
+- News
+- Announcements
+- Student progress
+- Class and competition notes
+- Other interesting resources
+
+Any questions, suggestions, concerns, comments, <small>curiosities, opinions, conjectures,</small> <sub>theories, <sub>postulations, <sub>congratulations, <sub>pizza...</sub></sub></sub></sub> can be directed to _josefduchesne@gmail.com_.
+
+[_Check it out!_](https://hciclassics.github.io)
 
 [Development Guidelines](DevelopmentGuide.md)
