@@ -11,6 +11,13 @@ function parseQuery(input) {
 
   var x = {};
   var list = input.split("?")[1];
+
+  if(!list) { // No query
+
+    return {};
+
+  }
+
   var vars = list.split("&");
 
   for(var i = 0; i < vars.length; i++) {
@@ -24,37 +31,69 @@ function parseQuery(input) {
 
 }
 
+function setQuery(vals) {
+
+  var base = window.location.href.split("?")[0] + "?";
+
+  for(var key in vals) {
+
+    if(vals.hasOwnProperty(key)) {
+
+      base += key + "=" + vals[key] + "&";
+
+    }
+
+  }
+
+  base = base.substr(0, base.length - 1);
+
+  window.location.href = base;
+
+}
+
 window.onload = function() {
 
-  loadContent("events");
+  reloadContent();
 
   $("#infoBar").load("panels/infoPanel.html");
 
 }
 
-function loadContent(contentName) {
+function setView(name) {
 
-  if(contentName == "events") {
+  setQuery({view: name});
+  reloadContent();
 
-    $("#contentPanel").load("panels/eventsPanel.html");
+}
 
-  } else if(contentName == "schedule") {
+function reloadContent() {
 
-    $("#contentPanel").load("panels/schedulePanel.html");
+  contentName = parseQuery(window.location.href).view;
+
+  // News page is default page
+
+  contentURI = "panels/eventsPanel.html";
+
+  if(contentName == "schedule") {
+
+    contentURI = "panels/schedulePanel.html";
 
   } else if(contentName == "progress") {
 
-    $("#contentPanel").load("panels/progressPanel.html");
+    contentURI = "panels/progressPanel.html";
 
   } else if(contentName == "resources") {
 
-    $("#contentPanel").load("panels/resourcesPanel.html");
+    contentURI = "panels/resourcesPanel.html";
 
   } else if(contentName == "photos") {
 
-    $("#contentPanel").load("panels/photosPanel.html");
+    contentURI = "panels/photosPanel.html";
 
   }
+
+  // '?v=' is a dirty trick to get around cacheing - add a query to the end of the filename when loading it
+  $("#contentPanel").load(contentURI + "?v=" + Math.floor(Math.random()*1000));
 
   $("#navbar-collapser").collapse("hide");
 
@@ -87,7 +126,7 @@ function unencrypt() {
   // SPECIFIC CHECK, MAY NEED TO UPDATE
   if(attempt.indexOf("s/0Bx") != -1) {
 
-    $("#resourcePasswordField").html("<a href='" + attempt + "'><button class='btn btn-primary'>Here you go!</button></a>");
+    $("#resourcePasswordField").html("<a href='" + attempt + "' target='_blank'><button class='btn btn-primary'>Here you go!</button></a>");
 
   } else {
 

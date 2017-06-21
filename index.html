@@ -2,7 +2,6 @@
 <html>
   <head>
 
-    <meta http-equiv="cache-control" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
@@ -41,13 +40,13 @@
                   News
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#" onclick="loadContent('events')">Upcoming Events</a></li>
-                  <li><a href="#" onclick="loadContent('schedule')">Schedule</a></li>
+                  <li><a href="javascript:setView('events')">Upcoming Events</a></li>
+                  <li><a href="javascript:setView('schedule')">Schedule</a></li>
                 </ul>
               </li>
-              <li><a href="#" onclick="loadContent('progress')">Progress</a></li>
-              <li><a href="#" onclick="loadContent('resources')">Resources</a></li>
-              <li><a href="#" onclick="loadContent('photos')">Photos</a></li>
+              <li><a href="javascript:setView('progress')">Progress</a></li>
+              <li><a href="javascript:setView('resources')">Resources</a></li>
+              <li><a href="javascript:setView('photos')">Photos</a></li>
             </ul>
           </div>
         </div>
@@ -60,7 +59,7 @@
       <div class="row">
         <!-- The push is so that on mobile it renders first, but desktop knows to "push" it to the right -->
         <div class="col-md-3 col-md-push-9">
-          <div class="panel panel-default" id="infoPanel">
+          <div class="panel panel-info" id="infoPanel">
             <div class="panel-heading">
               Info
               <!-- Make info panel removable on mobile only -->
