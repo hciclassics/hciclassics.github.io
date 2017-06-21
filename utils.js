@@ -1,7 +1,14 @@
+// Initialize default site variables
+resetSiteVals();
+
+// Site vals procedure:
+// 1. Update value
+// 2. Set query only when changing view, as it triggers a reload
+
+
+// Set up encrypted data
 var encryptedArray = [88, 44, 31, 21, 70, 13, 77, 64, 22, 45, 89, 46, 14, 75, 82, 88, 13, 8, 30, 58, 30, 59, 4, 8, 26, 83, 16, 6, 4, 58, 31, 62, 4, 9, 81, 82, 16, 28, 93, 111, 114, 32, 33, 53, 80, 112, 11, 43, 43, 27, 87, 18, 49, 35, 81, 126, 54, 39, 30, 29, 126, 15, 45, 44, 80, 113, 55, 80, 7, 44, 64, 101, 24, 13, 84, 69, 11, 1, 21];
 var encryptedString = "";
-
-var siteVals = {view: "events", info: "yes"};
 
 for(var i = 0; i < encryptedArray.length; i++) {
 
@@ -10,6 +17,8 @@ for(var i = 0; i < encryptedArray.length; i++) {
 }
 
 function parseQuery(input) {
+
+  // Extract data from URL query
 
   var x = {};
   var list = input.split("?")[1];
@@ -35,6 +44,8 @@ function parseQuery(input) {
 
 function setQuery(vals) {
 
+  // Add data to URL as a query
+
   var base = window.location.href.split("?")[0] + "?";
 
   for(var key in vals) {
@@ -55,7 +66,11 @@ function setQuery(vals) {
 
 window.onload = function() {
 
-  reloadContent();
+  // Sets up page on load
+
+  loadContent();
+
+  // Optionally populate or remove info bar on right
 
   if(siteVals.info != "no") {
 
@@ -69,15 +84,26 @@ window.onload = function() {
 
 }
 
-function setView(name) {
+function resetSiteVals() {
 
-  siteVals.view = name;
-  setQuery(siteVals);
-  reloadContent();
+  // Set the site values to default
+
+  siteVals = {view: "events", info: "yes"};
 
 }
 
-function reloadContent() {
+function setView(name) {
+
+  // Sets view name, updates URL query, thus reloading the page
+
+  siteVals.view = name;
+  setQuery(siteVals);
+
+}
+
+function loadContent() {
+
+  // Loads main content and collapses navbar
 
   if(Object.keys(parseQuery(window.location.href)).length > 0) { // There may be no query data, in which case retain default
 
@@ -115,13 +141,25 @@ function reloadContent() {
 
 }
 
+function dismissInfo() {
+
+  // Remove info bar and adjust site variables to keep it gone
+
+  easeOutElement('infoPanel');
+  siteVals.info = "no";
+
+}
+
 function easeOutElement(id) {
 
+  // Sitewide method for removing elements, first slide it up, then remove from DOM
   $("#" + id).slideUp(200, function() {$(this).remove()});
 
 }
 
 function xorString(input, mask) {
+
+  // Apply a XOR mask to a String
 
   var out = "";
 
@@ -137,6 +175,8 @@ function xorString(input, mask) {
 
 function unencrypt() {
 
+  // Get inputted password, validate by checking to see if it unencrypts correctly
+
   var attempt = xorString(encryptedString, $("#passwordInput").val());
 
   // SPECIFIC CHECK, MAY NEED TO UPDATE
@@ -149,12 +189,5 @@ function unencrypt() {
     $("#resourcePasswordField").parent().append("<div class='text-danger' style='padding: 5px;'><b>Incorrect password!</b></div>");
 
   }
-
-}
-
-function dismissInfo() {
-
-  easeOutElement('infoPanel');
-  siteVals.info = "no";
 
 }

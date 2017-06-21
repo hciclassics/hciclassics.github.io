@@ -10,18 +10,3 @@ body {
   cursor: pointer;
 
 }
-
-.vertical-center {
-
-  display: flex;
-  align-items: center;
-
-}
-
-.horizontal-center {
-
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-}
