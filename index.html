@@ -22,7 +22,8 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a href="#" class="navbar-brand" style="color: white;">
+            <a href="javascript:resetSiteVals(); setQuery(siteVals);" class="navbar-brand" style="color: white;">
+              <!-- Return to homepage and reset any site values -->
               Humberside Classics
             </a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapser" aria-expanded="false">
@@ -57,7 +58,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <!-- The push is so that on mobile it renders first, but desktop knows to "push" it to the right -->
+        <!-- The push is so that on mobile the info bar renders first, but desktop knows to "push" it to the right -->
         <div class="col-md-3 col-md-push-9">
           <div class="panel panel-info" id="infoPanel">
             <div class="panel-heading">
@@ -72,9 +73,7 @@
           </div>
         </div>
         <div class="col-md-9 col-md-pull-3">
-          <div id="contentPanel">
-
-          </div>
+          <div id="contentPanel"></div>
         </div>
       </div>
     </div>
