@@ -16,6 +16,30 @@ for(var i = 0; i < encryptedArray.length; i++) {
 
 }
 
+window.onload = function() {
+
+  // Sets up page on load
+
+  loadContent();
+
+  // Optionally populate or remove info bar on right
+
+  if(siteVals.info == "cheatmode") {
+
+    $("#infoBar").html("you have activated the special cheatmode!<br/>It does nothing!");
+
+  } else if(siteVals.info != "no") {
+
+    $("#infoBar").load("panels/infoPanel.html" + "?v=" + Math.floor(Math.random()*1000));
+
+  } else {
+
+    $("#infoBar").parent().remove();
+
+  }
+
+}
+
 function parseQuery(input) {
 
   // Extract data from URL query
@@ -64,26 +88,6 @@ function setQuery(vals) {
 
 }
 
-window.onload = function() {
-
-  // Sets up page on load
-
-  loadContent();
-
-  // Optionally populate or remove info bar on right
-
-  if(siteVals.info != "no") {
-
-    $("#infoBar").load("panels/infoPanel.html" + "?v=" + Math.floor(Math.random()*1000));
-
-  } else {
-
-    $("#infoBar").parent().remove();
-
-  }
-
-}
-
 function resetSiteVals() {
 
   // Set the site values to default
@@ -103,7 +107,7 @@ function setView(name) {
 
 function loadContent() {
 
-  // Loads main content and collapses navbar
+  // Loads main page content and collapses navbar
 
   if(Object.keys(parseQuery(window.location.href)).length > 0) { // There may be no query data, in which case retain default
 
@@ -170,24 +174,5 @@ function xorString(input, mask) {
   }
 
   return out;
-
-}
-
-function unencrypt() {
-
-  // Get inputted password, validate by checking to see if it unencrypts correctly
-
-  var attempt = xorString(encryptedString, $("#passwordInput").val());
-
-  // SPECIFIC CHECK, MAY NEED TO UPDATE
-  if(attempt.indexOf("s/0Bx") != -1) {
-
-    $("#resourcePasswordField").html("<a href='" + attempt + "' target='_blank'><button class='btn btn-primary'>Here you go!</button></a>");
-
-  } else {
-
-    $("#resourcePasswordField").parent().append("<div class='text-danger' style='padding: 5px;'><b>Incorrect password!</b></div>");
-
-  }
 
 }
