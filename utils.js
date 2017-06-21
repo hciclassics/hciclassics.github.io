@@ -26,7 +26,7 @@ window.onload = function() {
 
   if(siteVals.info == "cheatmode") {
 
-    $("#infoBar").html("you have activated the special cheatmode!<br/>It does nothing!");
+    $("#infoBar").html("<marquee>YOU ACTIVATED THE SPECIAL CHEATMODE ... IT DOES NOTHING!</marquee>");
 
   } else if(siteVals.info != "no") {
 

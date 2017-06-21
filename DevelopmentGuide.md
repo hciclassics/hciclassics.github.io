@@ -27,3 +27,7 @@ Panels represent main page content. Each view has a panel, the content of which 
 - `<div class='panel-footer'>` A footer for the panel **(optional)**
 
 <sup>1</sup> Note that technically speaking, `<style>` tags are not allowed to be in the `<body>`, but all browsers allow it, and it is common practice
+
+## Device Scaling
+
+Columns should use `sm` sizing. This means that only extra small screens, such as phones, stack content. Tablets and desktops should use the same layout.
