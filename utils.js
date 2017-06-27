@@ -1,5 +1,8 @@
 // Initialize default site variables
-resetSiteVals();
+
+const defaultVals = {view: "events", info: "yes"};
+var vals = {view: "events", info: "yes"};
+resetvals();
 
 // Site vals procedure:
 // 1. Update value
@@ -24,11 +27,11 @@ window.onload = function() {
 
   // Optionally populate or remove info bar on right
 
-  if(siteVals.info == "cheatmode") {
+  if(vals.info == "cheatmode") {
 
     $("#infoBar").html("<marquee>YOU ACTIVATED THE SPECIAL CHEATMODE ... IT DOES NOTHING!</marquee>");
 
-  } else if(siteVals.info == "no") {
+  } else if(vals.info == "no") {
 
     $("#infoBar").parent().remove();
 
@@ -74,7 +77,8 @@ function setQuery(vals) {
 
   for(var key in vals) {
 
-    if(vals.hasOwnProperty(key)) {
+    // Only append to query if different from default, this keeps url clean and short
+    if(vals.hasOwnProperty(key) && vals[key] != defaultVals[key]) {
 
       base += key + "=" + vals[key] + "&";
 
@@ -88,11 +92,19 @@ function setQuery(vals) {
 
 }
 
-function resetSiteVals() {
+function resetvals() {
 
-  // Set the site values to default
+  // Set the site values to default, load fron default object
+  for(var key in vals) {
 
-  siteVals = {view: "events", info: "yes"};
+    if(vals.hasOwnProperty(key)) {
+
+      vals[key] = defaultVals[key];
+
+    }
+
+  }
+
 
 }
 
@@ -100,8 +112,8 @@ function setView(name) {
 
   // Sets view name, updates URL query, thus reloading the page
 
-  siteVals.view = name;
-  setQuery(siteVals);
+  vals.view = name;
+  setQuery(vals);
 
 }
 
@@ -111,11 +123,11 @@ function loadContent() {
 
   if(Object.keys(parseQuery(window.location.href)).length > 0) { // There may be no query data, in which case retain default
 
-    siteVals = parseQuery(window.location.href); // In case of linking from outside
+    vals = parseQuery(window.location.href); // In case of linking from outside
 
   }
 
-  contentName = siteVals.view;
+  contentName = vals.view;
 
   // News page is default page
   contentURI = "panels/eventsPanel.html";
@@ -150,7 +162,7 @@ function dismissInfo() {
   // Remove info bar and adjust site variables to keep it gone
 
   easeOutElement('infoPanel');
-  siteVals.info = "no";
+  vals.info = "no";
 
 }
 
