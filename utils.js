@@ -1,7 +1,7 @@
 // Initialize default site variables
 
-const defaultVals = {view: "events", info: "yes"};
-var vals = {view: "events", info: "yes"};
+const defaultVals = {view: "events", info: "yes", article: "none"};
+var vals = {view: "events", info: "yes", article: "none"};
 resetvals();
 
 // Site vals procedure:

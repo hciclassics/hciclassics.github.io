@@ -1,3 +1,68 @@
+<script>
+
+  var loadArticleList = function() {
+
+      $.getJSON("eventData/index.json", function(data) {
+
+        var html = "";
+
+        html += "<div class='row'>"
+
+        for(var i = 0; i < data.length; i++) {
+
+          html +=
+            "<div class='col-sm-4'>" +
+              "<div class='panel panel-default hoverborder' onclick='loadArticle(\"" + data[i].filename + "\")'>" +
+                "<div class='panel-body'>" +
+                  "<h4 class='list-group-item-heading'>" + data[i].title + "</h4>" +
+                  "<p class='list-group-item-text'>" + data[i].body + "</p>" +
+                "</div>" +
+              "</div>" +
+            "</div>";
+
+        }
+
+        html += "</div>";
+
+        $("#eventsPanel").html(html);
+
+        console.log(data);
+
+      });
+
+  }
+
+  var loadArticle = function(filename) {
+
+    vals.article = filename;
+    setView("events");
+
+  }
+
+  if(vals.article == "none") {
+
+    loadArticleList();
+
+  } else {
+
+    var content = $.get("eventData/" + vals.article, function(data) {
+
+      $("#eventsPanel").html(data);
+      $("#eventsPanelHeader").html("<a href=\"javascript:returnToEvents()\">Back to Events</a>");
+
+    });
+
+  }
+
+  var returnToEvents = function() {
+
+    vals.article = defaultVals.article;
+    setView("events");
+
+  }
+
+</script>
+
 <div class="jumbotron hidden-xs" style="padding-top: 25px; padding-bottom: 25px; background-color: #dff0d8;">
   <h1>
     Salvē!
@@ -11,46 +76,9 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">
+  <div class="panel-heading" id="eventsPanelHeader">
     Events
   </div>
-  <div class="panel-body">
-    <!-- This format is good for desktops and tablets, but given that it is dynamically generated, mobile phones should use a list group-->
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="panel panel-default hoverborder" onclick="alert()">
-          <div class="panel-body">
-            <h4 class="list-group-item-heading">Certamen Participants Needed!</h4>
-            <p class="list-group-item-text">Twice a year, Ontario classics schools convene for a reach for the top competition in roman life, vocabulary, mythology, and history.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="panel panel-default hoverborder" onclick="alert()">
-          <div class="panel-body">
-            <h4 class="list-group-item-heading">Skit Positions</h4>
-            <p class="list-group-item-text">The conference skit script is almost complete but there are still open slots! <em>Sign up in room 114</em></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="panel panel-default hoverborder" onclick="alert()">
-          <div class="panel-body">
-            <h4 class="list-group-item-heading">Beware of Outsiders</h4>
-            <p class="list-group-item-text">So as it turns out, people not in Latin <b>still</b> really hate hearing about it. Read these tips to keeping your friends.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="panel panel-default hoverborder" onclick="alert()">
-          <div class="panel-body">
-            <h4 class="list-group-item-heading">Search and Rescue</h4>
-            <p class="list-group-item-text">So my left shoe is still missing...</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="panel-body" id="eventsPanel">
   </div>
 </div>
