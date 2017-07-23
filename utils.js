@@ -65,6 +65,17 @@ function parseQuery(input) {
 
   }
 
+  // Append default values, where not specified in query
+  for(var key in defaultVals) {
+
+    if(defaultVals.hasOwnProperty(key) && x[key] == undefined) {
+
+      x[key] = defaultVals[key];
+
+    }
+
+  }
+
   return x;
 
 }
