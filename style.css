@@ -1,14 +1,50 @@
 body {
 
+	font-family: proxima-nova,'Open Sans',Tahoma,sans-serif;
+	font-size: 12pt;
 
+}
+
+h1 {
+
+	font-family: proxima-nova,'Open Sans',Tahoma,sans-serif;
+	font-size: 40px;
+
+}
+
+.navbar {
+
+	border-radius: 0px;
 
 }
 
 
+#resourcePasswordField {
 
-.hoverborder:hover {
+	margin-top: 20px;
 
-  border: 1px solid lightblue;
-  cursor: pointer;
+}
+
+#navbar-collapser {
+
+	float: right;
+
+}
+
+.eventName {
+
+	margin-left: 20px;
+
+}
+
+.panelCol {
+
+	border-right: 1px solid #eee;
+
+}
+
+.eventDescription {
+
+	margin-left: 40px;
 
 }

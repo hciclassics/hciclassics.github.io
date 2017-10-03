@@ -1,81 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
 
-    <!-- Javascript for bootstrap -->
-    <script src="jquery.min.js"></script>
-    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <!-- Javascript for bootstrap -->
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
-    <title>HCI Classics</title>
+  <title>HCI Classics</title>
 
-    <script src="utils.js"></script>
+  <script src="utils.js"></script>
 
-  </head>
-  <body>
+</head>
+<body>
 
-    <!-- Navbar -->
-      <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a href="javascript:resetSiteVals(); setQuery(siteVals);" class="navbar-brand" style="color: white;">
-              <!-- Return to homepage and reset all site values -->
-              Humberside Classics
-            </a>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapser" aria-expanded="false">
-              <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-          </div>
-
-          <div class="collapse navbar-collapse" id="navbar-collapser">
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  News
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="javascript:setView('events')">Upcoming Events</a></li>
-                  <li><a href="javascript:setView('schedule')">Schedule</a></li>
-                </ul>
-              </li>
-              <li><a href="javascript:setView('progress')">Progress</a></li>
-              <li><a href="javascript:setView('resources')">Resources</a></li>
-              <li><a href="javascript:setView('photos')">Photos</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-
-    <!-- Main page content -->
-
-    <div class="container-fluid">
-      <div class="row">
-        <!-- The push is so that on mobile the info bar renders first, but desktop knows to "push" it to the right -->
-        <div class="col-sm-3 col-sm-push-9">
-          <div class="panel panel-info" id="infoPanel">
-            <div class="panel-heading">
-              Info
-              <!-- Make info panel removable on mobile only -->
-              <button type="button" class="close visible-xs" aria-label="Close" onclick="dismissInfo()">
-                <span aria-hidden="true">&times</span>
+  <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a href="index.html" class="navbar-brand" style="color: white;">
+                <!-- Return to homepage and reset all site values -->
+                HCI Classics Club
+              </a>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapser" aria-expanded="false">
+                <span class="sr-only">Toggle Navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
               </button>
             </div>
-            <div class="panel-body" id="infoBar">
+
+            <div class="collapse navbar-collapse" id="navbar-collapser">
+              <ul class="nav navbar-nav nav-pills">
+                <li><a href="javascript:loadPage('events.content')">Upcoming Events</a></li>
+                <li><a href="javascript:loadPage('schedule.content')">Schedule</a></li>
+                <li><a href="javascript:loadPage('resources.content')">Resources</a></li>
+              </ul>
             </div>
           </div>
+        </nav>
+
+
+  <!-- Main page content -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-push-9">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            Have Something to Put Here?
+          </div>
+          <div class="panel-body">
+            Send any info you need posted to <em>josefduchesne@gmail.com</em>
+          </div>
         </div>
-        <div class="col-sm-9 col-sm-pull-3">
-          <div id="contentPanel"></div>
+      </div>
+      <div class="col-sm-8 col-sm-pull-3 panelCol">
+        <div class="mainPanel" id="mainPanel">
+
         </div>
       </div>
     </div>
-  </body>
+  </div>
+  <!--<footer class="bg-inverse">
+    <div class="container">
+      <div class="row">
+        Heya!
+      </div>
+    </div>
+  </footer>-->
+</body>
 </html>

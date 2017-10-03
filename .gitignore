@@ -1,2 +1,4 @@
 
 .DS_Store
+/plaintext
+/node_modules

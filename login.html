@@ -1,0 +1,32 @@
+<script>
+  $("#passkeyInput").keypress(function (e) {
+
+    if(e.keyCode == 13) {
+
+      submitPasskey();
+
+    }
+
+  });
+
+  function submitPasskey() {
+
+  	window.localStorage["passkey"] = $("#passkeyInput").val();
+    loadPage("events.content");
+
+  }
+
+</script>
+<div class="page-header">
+  <h1>HCI Classics</h1>
+</div>
+<p>Hey there, welcome to the Humberside Classics Club homepage. Here there will be news on upcoming events, status of projects, and resources such as notes or tutorials.</p>
+<div class="alert alert-info" role="alert">
+  Please enter the passkey to continue:
+  <div class="input-group" id="resourcePasswordField">
+    <input type="text" class="form-control" placeholder="Passkey" id="passkeyInput">
+    <span class="input-group-btn">
+      <button class="btn btn-primary" type="button" onclick="submitPasskey()">Submit</button>
+    </span>
+  </div>
+</div>
