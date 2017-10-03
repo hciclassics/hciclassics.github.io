@@ -44,6 +44,8 @@ function unencrypt(string, validator, callback) {
 
 function loadPage(src) {
 
+	console.log("Loading page: " + src);
+
   $.get(src, function(data) {
 
     unencrypt(data, src, function(data, err) {
