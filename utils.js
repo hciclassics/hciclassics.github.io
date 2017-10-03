@@ -23,9 +23,9 @@ function xorString(input, mask) {
 
 function unencrypt(string, validator, callback) {
 
-  console.log(string);
-
   // Get inputted password, validate by checking to see if it unencrypts correctly
+
+	window.localStorage["passkey"] = window.localStorage["passkey"] || "help! I'm trapped in a callback factory!";
 
   var attempt = xorString(string, window.localStorage["passkey"]);
 
