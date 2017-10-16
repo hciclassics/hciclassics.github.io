@@ -14,6 +14,7 @@
   <title>HCI Classics</title>
 
   <script src="utils.js"></script>
+  <script src="CountDown.js"></script>
 
 </head>
 <body>
@@ -55,6 +56,26 @@
           </div>
           <div class="panel-body">
             Send any info you need posted to <em>josefduchesne@gmail.com</em>
+          </div>
+        </div>
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            Countdown to Certamen I
+          </div>
+          <div class="panel-body" id="certamenCountdown">
+            <script>
+              new CountDown({year: 2017, month: 10, day: 26, hours: 8, minutes: 30}, "certamenCountdown");
+            </script>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            Countdown to Classics
+          </div>
+          <div class="panel-body" id="classicsCountdown">
+            <script>
+              new CountDown({year: 2018, month: 5, day: 10}, "classicsCountdown");
+            </script>
           </div>
         </div>
       </div>
