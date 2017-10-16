@@ -48,3 +48,11 @@ h1 {
 	margin-left: 40px;
 
 }
+
+.card {
+
+	padding: 20px;
+	background: #d9edf7;
+	box-shadow: #888 5px 5px 0px;
+
+}

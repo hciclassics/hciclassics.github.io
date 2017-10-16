@@ -22,6 +22,13 @@ function decodeBase64String(input, mask) {
 
   for(var i = 0; i < input.length; i++) {
 
+		if(input[i] == "=") {
+
+      out += "=";
+      continue;
+
+    }
+
     var pos = base64.indexOf(input[i]) - base64.indexOf(mask[i % mask.length]);
 
     if(pos < 0) {
@@ -35,23 +42,6 @@ function decodeBase64String(input, mask) {
   }
 
   return out;
-
-}
-
-function encrypt(name, output, key) {
-
-  fs.readFile(name, function(err, data) {
-
-    if(err) throw err;
-
-    fs.writeFile(output, encodeBase64String(textToB64(data.toString()), textToB64(key)), function (err) {
-
-      if(err) throw err;
-
-    });
-
-
-  });
 
 }
 
