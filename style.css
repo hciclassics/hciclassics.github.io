@@ -19,6 +19,7 @@ h1 {
 }
 
 
+
 #resourcePasswordField {
 
 	margin-top: 20px;
@@ -27,7 +28,7 @@ h1 {
 
 #navbar-collapser {
 
-	float: right;
+	text-align: center;
 
 }
 
@@ -49,10 +50,24 @@ h1 {
 
 }
 
-.card {
+#mainPanel {
 
-	padding: 20px;
+	padding: 10px;
 	background: #d9edf7;
 	box-shadow: #888 5px 5px 0px;
+	margin-bottom: 20px;
+
+}
+
+hr {
+
+	border-top: 1px solid #888;
+
+}
+
+.card {
+
+	padding: 10px;
+	padding-top: 0;
 
 }
